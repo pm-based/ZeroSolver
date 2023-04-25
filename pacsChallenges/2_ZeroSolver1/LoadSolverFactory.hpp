@@ -12,10 +12,10 @@
 
 
 namespace Solver{
-    class loadSolverFactory{
+    class LoadSolverFactory{
         public:
-        loadSolverFactory() = default;
-        loadSolverFactory(std::string s){this->load(s);}
+        LoadSolverFactory() = default;
+        LoadSolverFactory(std::string s){this->load(s);}
         bool load(std::string listPluginFile);
         void close();
 
