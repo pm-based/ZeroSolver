@@ -2,7 +2,7 @@ PATH_PACSEXAMPLES = /home/p2/PACS
 
 CXXFLAGS = -std=c++20
 CPPFLAGS = -I. -I$(PATH_PACSEXAMPLES)/pacs-examples/Examples/src/Utilities -I$(PATH_PACSEXAMPLES)/pacs-examples/Examples/include -I./SolverPlugins
-PLUGINDIR = ./SolverPlugins
+PLUGINDIR = ./SolverPlugins/
 
 all: main
 
