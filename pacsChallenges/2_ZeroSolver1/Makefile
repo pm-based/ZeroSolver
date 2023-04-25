@@ -25,7 +25,7 @@ SecantPlugin.o:
 
 
 # Solver Factory
-libSolverFactory.so:
+libSolverFactory.so: FactoryTraits.o
 	$(CXX) $(CXXFLAGS) -shared FactoryTraits.o -o libSolverFactory.so
 
 FactoryTraits.o:
