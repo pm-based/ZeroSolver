@@ -18,7 +18,7 @@ LoadSolverFactory.o:
 
 #Plugins
 libSecant.so: SecantPlugin.o libSolverFactory.so
-	$(CXX) $(CXXFLAGS) -shared $(PLUGINDIR)/SecantPlugin.o -lSolverFactory -o $(PLUGINDIR)libSecant.so
+	$(CXX) $(CXXFLAGS) -shared $(PLUGINDIR)/SecantPlugin.o -L. -lSolverFactory -o $(PLUGINDIR)libSecant.so
 
 SecantPlugin.o:
 	$(CXX) -fPIC $(CPPFLAGS) -c $(PLUGINDIR)SecantPlugin.cpp -o $(PLUGINDIR)/SecantPlugin.o
