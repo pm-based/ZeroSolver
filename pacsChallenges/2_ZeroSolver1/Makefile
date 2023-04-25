@@ -9,7 +9,7 @@ all: main
 main: main.o libSolverFactory.so LoadSolverFactory.o
 	$(CXX) main.o LoadSolverFactory.o -L. -L$(PLUGINDIR) -lSolverFactory -o main
 
-main.o:
+main.o: libSecant.so #da togliere
 	$(CXX) $(CXXFLAGS) -fPIC main.cpp -o main.o
 
 #LoadSolverFactory
