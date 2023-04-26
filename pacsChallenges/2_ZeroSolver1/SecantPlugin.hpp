@@ -6,10 +6,10 @@
 namespace Solver{
     class Secant : public SolverBase, FunctionTraits {
         public:
-        Secant(FunctionType& _fun): fun(_fun) {};
+        Secant(FunctionType _fun): fun(_fun) {};
         virtual RootType solve() const override;
         private:
-        FunctionType& fun;
+        FunctionType fun;
     };
 
 }
