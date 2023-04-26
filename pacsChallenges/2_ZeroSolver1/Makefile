@@ -1,32 +1,87 @@
-PATH_PACSEXAMPLES = /home/p2/PACS
+############################################################
+#
+# An example of Makefile for the course on 
+# Advanced Programming for Scientific Computing
+# It should be modified for adapting it to the various examples
+#
+############################################################
+#
+# The environmental variable PACS_ROOT should be set to the
+# root directory where the examples reside. In practice, the directory
+# where this file is found. The resolution of PACS_ROOT is made in the
+# Makefile.h file, where other important variables are also set.
+# The only user defined variable that must be set in this file is
+# the one indicating where Makefile.h resides
 
-CXXFLAGS = -std=c++20
-CPPFLAGS = -I. -I$(PATH_PACSEXAMPLES)/pacs-examples/Examples/src/Utilities -I$(PATH_PACSEXAMPLES)/pacs-examples/Examples/include -I./SolverPlugins
-PLUGINDIR = ./SolverPlugins/
+MAKEFILEH_DIR=/home/p2/PACS/pacs-examples/Examples
+#
+include $(MAKEFILEH_DIR)/Makefile.inc
+#
+# You may have an include file also in the current directory
+#
+-include Makefile.inc
 
-all: main
+#
+# The general setting is as follows:
+# mains are identified bt main_XX.cpp
+# all other files are XX.cpp
+#
 
-main: main.o libSolverFactory.so LoadSolverFactory.o
-	$(CXX) main.o LoadSolverFactory.o -L. -L$(PLUGINDIR) -lSolverFactory -o main
+# get all files *.cpp
+SRCS=$(wildcard *.cpp)
+# get the corresponding object file
+OBJS = $(SRCS:.cpp=.o)
+# get all headers in the working directory
+HEADERS=$(wildcard *.hpp)
+#
+exe_sources=$(filter main%.cpp,$(SRCS))
+EXEC=$(exe_sources:.cpp=)
 
-main.o: libSecant.so
-	$(CXX) $(CXXFLAGS) -fPIC main.cpp -o main.o
+CXXFLAGS+=-fPIC
+LDFLAGS= $(OPTFLAGS) -Wl,-rpath,.
+LDLIBS=-L. -lFactory -ldl
+PLUGINDIR = ./SolverPlugins
+#========================== ORA LA DEFINIZIONE DEGLI OBIETTIVI
+.phony= all clean distclean doc
 
-#LoadSolverFactory
-LoadSolverFactory.o:
-	$(CXX) $(CXXFLAGS) -fPIC $(CPPFLAGS) -c LoadSolverFactory.cpp -o LoadSolverFactory.o
+.DEFAULT_GOAL = all
 
-#Plugins
-libSecant.so: SecantPlugin.o libSolverFactory.so
-	$(CXX) $(CXXFLAGS) -shared $(PLUGINDIR)/SecantPlugin.o -L. -lSolverFactory -o $(PLUGINDIR)libSecant.so
+all: $(DEPEND) library $(EXEC)
 
-SecantPlugin.o:
-	$(CXX) -fPIC $(CPPFLAGS) -c $(PLUGINDIR)SecantPlugin.cpp -o $(PLUGINDIR)/SecantPlugin.o
+library: libFactory.so libSecant.so
+
+libFactory.so: FactoryTraits.o
+	$(CXX) $(OPTFLAGS) -shared FactoryTraits.o  -o libFactory.so
+
+#libSecant.so: SecantPlugin.o
+#	$(CXX) $(OPTFLAGS) -shared $(PLUGINDIR)/SecantPlugin.o -L. -lFactory -o $(PLUGINDIR)/#libSecant.so
+	
+libSecant.so: SecantPlugin.o
+	$(CXX) $(OPTFLAGS) -shared SecantPlugin.o -L. -lFactory -o libSecant.so
+
+clean:
+	$(RM) -f $(EXEC) $(OBJS)
+
+distclean:
+	$(MAKE) clean
+	$(RM) -f ./doc $(DEPEND)
+	$(RM) *.out *.bak *~ *.so
+
+doc:
+	doxygen $(DOXYFILE)
+
+$(EXEC): main.o LoadSolverFactory.o
 
 
-# Solver Factory
-libSolverFactory.so: FactoryTraits.o
-	$(CXX) $(CXXFLAGS) -shared FactoryTraits.o -o libSolverFactory.so
+$(OBJS): $(SRCS)
 
-FactoryTraits.o:
-	$(CXX) $(CXXFLAGS) -fPIC -c FactoryTraits.cpp
+$(DEPEND): $(SRCS)
+	$(RM) $(DEPEND)
+	for f in $(SRCS); do \
+	$(CXX) $(STDFLAGS) $(CPPFLAGS) -MM $$f >> $(DEPEND); \
+	done
+
+-include $(DEPEND)
+
+
+

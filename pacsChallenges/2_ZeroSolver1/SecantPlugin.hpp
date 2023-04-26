@@ -1,7 +1,7 @@
 #ifndef SECANTPLUGIN_HPP
 #define SECANTPLUGIN_HPP
 
-#include "../SolverBase.hpp"
+#include "SolverBase.hpp"
 
 namespace Solver{
     class Secant : public SolverBase, FunctionTraits {

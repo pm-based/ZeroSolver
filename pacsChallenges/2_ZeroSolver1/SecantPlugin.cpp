@@ -1,5 +1,5 @@
 #include "SecantPlugin.hpp"
-#include "../Traits.hpp"
+#include "Traits.hpp"
 
 
 namespace Solver{
