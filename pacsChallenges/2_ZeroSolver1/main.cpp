@@ -1,11 +1,12 @@
 #include <numbers>
 #include <cmath>
 #include <functional>
+#include <string>
+#include <dlfcn.h>
+
 #include "Traits.hpp"
 #include "FunctionRtoR.hpp"
 #include "LoadSolverFactory.hpp"
-#include <string>
-#include <dlfcn.h>
 
 int main(){
     Solver::LoadSolverFactory loadPlugins("PluginListToLoad.txt");
