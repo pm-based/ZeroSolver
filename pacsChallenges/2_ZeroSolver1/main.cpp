@@ -4,7 +4,7 @@
 #include "FunctionRtoR.hpp"
 #include "LoadSolverFactory.hpp"
 #include <string>
-
+#include <dlfcn.h>
 
 int main(){
     Solver::LoadSolverFactory loadPlugins("PluginListToLoad.txt");
