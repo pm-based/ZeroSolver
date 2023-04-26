@@ -35,8 +35,8 @@ namespace Solver{
         struct LoadF
         {
             LoadF(){
-                solverFactory["Secant"] = []() {
-                    return std::make_unique<Secant>();
+                solverFactory["Secant"] = [](FunctionTraits::FunctionType _fun) {
+                    return std::make_unique<Secant>(_fun);
                     };
             }
         };

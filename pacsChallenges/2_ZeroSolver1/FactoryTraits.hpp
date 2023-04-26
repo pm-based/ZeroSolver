@@ -12,7 +12,7 @@
 namespace Solver{
     using SolverType = std::unique_ptr<Solver::SolverBase>;
 
-    using SolverBuilder = std::function<SolverType()>;
+    using SolverBuilder = std::function<SolverType(FunctionTraits::FunctionType)>;
     using SolverId = std::string;
     using SolverFactory = std::map<SolverId, SolverBuilder>;
     
