@@ -8,7 +8,7 @@
 class FunctionRtoR: FunctionTraits{
     public:
     FunctionRtoR(FunctionType _fun): fun(_fun){};
-    void setSovler(std::string const s);
+    void setSovler(std::string s);
     void solve() const;
     void print() const;
 
