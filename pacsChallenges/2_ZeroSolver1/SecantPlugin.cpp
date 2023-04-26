@@ -1,5 +1,6 @@
 #include "SecantPlugin.hpp"
 #include "Traits.hpp"
+#include "FactoryTraits.hpp"
 
 
 namespace Solver{
@@ -34,12 +35,12 @@ namespace Solver{
         struct LoadF
         {
             LoadF(){
-                polyFactory["Quadrilateral"] = []() {
-                    return std::make_unique<Quadrilateral>();
+                solverFactory["Secant"] = []() {
+                    return std::make_unique<Secant>();
                     };
             }
         };
-        
+
         const LoadF loadf; // local variable when created loads the stuff
     } // namespace
 } // namespace Solver
