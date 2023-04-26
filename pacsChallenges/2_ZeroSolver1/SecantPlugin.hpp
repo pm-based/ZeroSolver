@@ -6,8 +6,9 @@
 namespace Solver{
     class Secant : public SolverBase, FunctionTraits {
         public:
-        Secant() = default;
-        Secant(FunctionType _fun): fun(_fun) {};
+        //Secant() = default;
+        //Secant(FunctionType _fun): fun(_fun) {};
+        virtual void setFun(FunctionType _fun){fun = _fun;}
         virtual RootType solve() const override;
         private:
         FunctionType fun;

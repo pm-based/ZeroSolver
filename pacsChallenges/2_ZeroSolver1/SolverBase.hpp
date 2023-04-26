@@ -9,6 +9,7 @@ namespace Solver{
         public:
         SolverBase() = default;
         virtual RootType solve() const = 0;
+        virtual void setFun(FunctionType) const = 0;
         };
 }
 
