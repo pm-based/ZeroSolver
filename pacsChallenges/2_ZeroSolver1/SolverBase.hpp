@@ -7,9 +7,11 @@ namespace Solver{
 
     class SolverBase : FunctionTraits{
         public:
-        SolverBase() = default;
+        SolverBase(FunctionType _fun): fun(_fun){};
+        virtual ~SolverBase() = default;
         virtual RootType solve() const = 0;
-        //virtual void setFun(FunctionType) const = 0;
+        protected:
+        FunctionType fun;
         };
 }
 

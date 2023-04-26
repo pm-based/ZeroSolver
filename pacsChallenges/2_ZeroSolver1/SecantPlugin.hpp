@@ -4,13 +4,10 @@
 #include "SolverBase.hpp"
 
 namespace Solver{
-    class Secant : public SolverBase, FunctionTraits {
+    class Secant final: public SolverBase, FunctionTraits {
         public:
-        Secant(FunctionType _fun): fun(_fun) {};
-        //virtual void setFun(FunctionType _fun){fun = _fun;}
+        Secant(FunctionType _fun): SolverBase(_fun) {};
         virtual RootType solve() const override;
-        private:
-        FunctionType fun;
     };
 
 }
