@@ -70,7 +70,7 @@ distclean:
 doc:
 	doxygen $(DOXYFILE)
 
-$(EXEC): main.o LoadSolverFactory.o
+$(EXEC): main.o LoadSolverFactory.o FunctionRtoR.o
 
 
 $(OBJS): $(SRCS)
