@@ -9,12 +9,12 @@ class FunctionRtoR: FunctionTraits{
     public:
     FunctionRtoR(FunctionType _fun): fun(_fun){};
     void setSovler(std::string s);
-    void solve() const;
+    void solve() {sol = solver.solve();}
     void print() const;
 
     private:
     FunctionType fun;
-    RootType sol;
+    RootType sol = 0;
     Solver::SolverType solver;
 };
 

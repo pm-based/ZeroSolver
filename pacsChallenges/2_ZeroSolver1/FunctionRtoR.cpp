@@ -8,5 +8,5 @@ void FunctionRtoR::setSovler(std::string s){
 };
 
 void FunctionRtoR::print() const{
-    std::cout<<"AAAAAA"<<std::endl;
+    std::cout<<"sol"<<std::endl;
 }
