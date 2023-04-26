@@ -3,6 +3,7 @@
 #include "Traits.hpp"
 #include "FunctionRtoR.hpp"
 #include "LoadSolverFactory.hpp"
+#include <string>
 
 
 int main(){
