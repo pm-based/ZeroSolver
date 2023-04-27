@@ -1,2 +1,3 @@
 ./libSecant.so
 ./libBisection.so
+./libBroyden.so
