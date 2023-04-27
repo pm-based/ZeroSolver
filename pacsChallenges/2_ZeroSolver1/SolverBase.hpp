@@ -17,7 +17,7 @@ namespace Solver{
             const point _b, 
             const double _tol_abs, 
             const unsigned int _maxIter); 
-            
+
         protected:
         FunctionType fun;
         OptionType opt;
