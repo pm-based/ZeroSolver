@@ -9,9 +9,9 @@ namespace Solver{
 		point  b = opt.b;
 		double ya = fun(a);
 		double yb = fun(b);
-		if(ya * yb < 0){
+		if(ya * yb > 0){
 			std::cerr << std::endl 
-			<< "Function must change sign at the two end values, f(a)= " << ya<< "f(b)=" << yb
+			<< "Function must change sign at the two end values"
 			<< std::endl;
 			return std::make_pair(0, false);
 			}
