@@ -12,14 +12,12 @@ class FunctionRtoR final: FunctionTraits{
 
     // Solver settings:
     void setSovler(std::string s);
-    void PRINTSOLVER(){std::cout<<solver<<std::endl;}
 
     void setOptions(const point _a,
             const point _b, 
             const double _tol_rel,
             const double _tol_abs, 
-            const unsigned int _maxIter){
-                solver->setOptions(_a, _b, _tol_rel, _tol_abs, _maxIter);}
+            const unsigned int _maxIter);
 
     void solve(){sol = solver->solve();}
     void print() const;
@@ -27,7 +25,7 @@ class FunctionRtoR final: FunctionTraits{
     private:
     FunctionType fun;
     Solver::NumericalSolutionType sol;
-    Solver::SolverType solver;
+    Solver::SolverType solver = nullptr;
 };
 
 #endif //FUNCTIONRTOR_HPP
