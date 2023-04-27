@@ -17,7 +17,7 @@ void FunctionRtoR::setOptions(const FunctionTraits::point _a,
             const double _tol_abs, 
             const unsigned int _maxIter)
 {
-    if(solver=nullptr){ //in order to avoid segmentation fault
+    if(solver==nullptr){ //in order to avoid segmentation fault
         std::cout<<"First set the solver"<<std::endl;
     }else{
         solver->setOptions(_a, _b, _tol_rel, _tol_abs, _maxIter);
