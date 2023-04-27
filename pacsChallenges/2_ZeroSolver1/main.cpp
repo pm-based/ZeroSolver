@@ -20,7 +20,7 @@ int main(){
     //ChallengeFunction.print();
     std::cout<<"aaa"<< std::endl;
     ChallengeFunction.setSovler("Bisection");
-    ChallengeFunction.setOptions(-1,0,1.e-6,1.e-10,10000);
+    ChallengeFunction.setOptions(-1,1,1.e-6,1.e-10,10000);
     ChallengeFunction.solve();
     ChallengeFunction.print();
 
