@@ -4,6 +4,7 @@
 #include "Traits.hpp"
 #include "FactoryTraits.hpp"
 #include <string>
+#include <iostream>
 
 class FunctionRtoR final: FunctionTraits{
     public:
@@ -11,6 +12,7 @@ class FunctionRtoR final: FunctionTraits{
 
     // Solver settings:
     void setSovler(std::string s);
+    void PRINTSOLVER(){std::cout<<solver<<std::endl;}
 
     void setOptions(const point _a,
             const point _b, 
