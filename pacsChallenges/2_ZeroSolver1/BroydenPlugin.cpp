@@ -5,16 +5,16 @@
 
 namespace Solver{
 	NumericalSolutionType Broyden::solve() const{
-        double Dfx0 = dfx0;
-        double X0 = x0;
-        double fx0 = fun(x0);
+        double          Dfx0{dfx0};
+        double          X0{x0};
+        double          fx0{fun(x0)};
         unsigned int    iter{0u};
-        double deltax;
-        double X1;
-        double fx1;
-        double diff = opt.tol_abs+1;
+        double          deltax;
+        double          X1;
+        double          fx1;
+        double          diff{opt.tol_abs+1};
         
-        while(diff >= opt.tol_abs and iter < opt.maxIter){
+        while(diff >= opt.tol_abs && iter < opt.maxIter){
             ++iter;
             deltax = -Dfx0/fx0;
             X1=X0+deltax;
@@ -24,7 +24,7 @@ namespace Solver{
             X0 = X1;
             fx0 = fx1;
         }
-        if (iter == opt.maxIter and diff > opt.tol_abs){
+        if (iter == opt.maxIter && diff > opt.tol_abs){
             return std::make_pair(X1, false);
         }else{
             return std::make_pair(X1, true);
