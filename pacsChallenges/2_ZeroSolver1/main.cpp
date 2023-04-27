@@ -21,6 +21,7 @@ int main(){
     ChallengeFunction.print();
 
     ChallengeFunction.setSovler("Bisection");
+    ChallengeFunction.setOptions(-1,0,1.e-6,1.e-10,10000);
     ChallengeFunction.solve();
     ChallengeFunction.print();
 
