@@ -1,8 +1,6 @@
 #include "BroydenPlugin.hpp"
 #include "Traits.hpp"
 #include "FactoryTraits.hpp"
-#include <iostream>
-
 
 namespace Solver{
 	NumericalSolutionType Broyden::solve() const{
@@ -18,7 +16,6 @@ namespace Solver{
         while(diff >= opt.tol_abs && iter < opt.maxIter){
             ++iter;
             deltax = -fx0/Dfx0;
-            std::cout<<deltax<<" "<<Dfx0 << "  " << X0<< std::endl;
             X1=X0+deltax;
             fx1 = fun(X1);
             Dfx0 += (fx1*deltax)/(deltax*deltax);
@@ -31,9 +28,8 @@ namespace Solver{
         }else{
             return std::make_pair(X1, true);
         }
-
-
     }
+    
     
 	namespace
     {
