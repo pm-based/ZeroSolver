@@ -48,7 +48,7 @@ PLUGINDIR = ./SolverPlugins
 
 all: $(DEPEND) library $(EXEC)
 
-library: libFactory.so libSecant.so libBisection.so
+library: libFactory.so libSecant.so libBisection.so libBroyden.so
 
 libFactory.so: FactoryTraits.o
 	$(CXX) $(OPTFLAGS) -shared FactoryTraits.o  -o libFactory.so
@@ -58,6 +58,9 @@ libSecant.so: SecantPlugin.o
 
 libBisection.so: BisectionPlugin.o
 	$(CXX) $(OPTFLAGS) -shared BisectionPlugin.o -L. -lFactory -o libBisection.so
+
+libBroyden.so: BroydenPlugin.o
+	$(CXX) $(OPTFLAGS) -shared BroydenPlugin.o -L. -lFactory -o libBroyden.so
 
 clean:
 	$(RM) -f $(EXEC) $(OBJS)
