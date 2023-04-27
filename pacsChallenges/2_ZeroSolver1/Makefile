@@ -52,12 +52,12 @@ library: libFactory.so libSecant.so
 
 libFactory.so: FactoryTraits.o
 	$(CXX) $(OPTFLAGS) -shared FactoryTraits.o  -o libFactory.so
-
-#libSecant.so: SecantPlugin.o
-#	$(CXX) $(OPTFLAGS) -shared $(PLUGINDIR)/SecantPlugin.o -L. -lFactory -o $(PLUGINDIR)/#libSecant.so
 	
 libSecant.so: SecantPlugin.o
 	$(CXX) $(OPTFLAGS) -shared SecantPlugin.o -L. -lFactory -o libSecant.so
+
+libBisection.so: BisectionPlugin.o
+	$(CXX) $(OPTFLAGS) -shared BisectionPlugin.o -L. -lFactory -o libBisection.so
 
 clean:
 	$(RM) -f $(EXEC) $(OBJS)

@@ -1,1 +1,2 @@
 ./libSecant.so
+./libBisection.so
