@@ -4,6 +4,7 @@
 #include <tuple>
 #include <functional>
 
+// Traits useful to handle functions
 struct FunctionTraits{
     using ArgType = double;
     using RootType = double;
@@ -13,7 +14,7 @@ struct FunctionTraits{
 
 //Traits for the Solver
 namespace Solver{
-    using Concergence = bool;
+    using Concergence = bool;   // It indicate if the method has converged
     using NumericalSolutionType = std::pair<FunctionTraits::RootType, Concergence>;
 }
 

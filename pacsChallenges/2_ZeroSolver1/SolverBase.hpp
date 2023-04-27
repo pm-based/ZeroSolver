@@ -8,10 +8,13 @@ namespace Solver{
 
     class SolverBase : FunctionTraits{
         public:
+        // The only SolverBase constractor, since the class is 
+        // instantieted only in this way by FunctionRtoR
         SolverBase(FunctionType _fun): fun(_fun){};
         virtual ~SolverBase() = default;
 
         virtual NumericalSolutionType solve() const = 0;
+
         void setOptions(
             const point _a, 
             const point _b,
@@ -20,7 +23,7 @@ namespace Solver{
             const unsigned int _maxIter); 
 
         protected:
-        FunctionType fun;
+        FunctionType fun; // Function to solve
         OptionType opt;
         };
 }

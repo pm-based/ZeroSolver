@@ -1,15 +1,14 @@
 #ifndef LOADSOLVERFACTORY_HPP
 #define LOADSOLVERFACTORY_HPP
 
-#include <dlfcn.h>
 #include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <dlfcn.h> //To implement plugin architecture
 
 #include "FactoryTraits.hpp"
-
 
 namespace Solver{
     class LoadSolverFactory{

@@ -25,11 +25,14 @@ namespace Solver{
         return std::make_pair(c, (iter < opt.maxIter));
     }
 
+    // Implementation of plugin architecture
     namespace
     {
         struct LoadF
         {
             LoadF(){
+                // Adding the method (Definited by the SolverBase(_fun) constructor)
+                // to solverFactory 
                 solverFactory["Secant"] = [](FunctionTraits::FunctionType _fun) {
                     return std::make_unique<Secant>(_fun);
                     };
