@@ -9,7 +9,7 @@ namespace Solver{
         FunctionTraits::point b = 1;
         double tol_rel = 1.e-5;
         double tol_abs = 1.e-8;
-        unsigned int maxIter = 1000;
+        unsigned int maxIter = 20;
     };
 }
 
