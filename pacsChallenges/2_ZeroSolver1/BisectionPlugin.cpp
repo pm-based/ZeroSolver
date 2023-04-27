@@ -9,13 +9,13 @@ namespace Solver{
 		point  b = opt.b;
 		double ya = fun(a);
 		double yb = fun(b);
-		double delta = b - a;
 		if(ya * yb < 0){
 			std::cerr << std::endl 
 			<< "Function must change sign at the two end values"
 			<< std::endl;
 			return std::make_pair(0, false);
 			}
+		double delta = b - a;
 		double yc{ya};
 		double c{a};
 		while(std::abs(delta) > 2 * opt.tol_abs)
