@@ -3,7 +3,11 @@
 
 void FunctionRtoR::setSovler(std::string s){
     auto it = Solver::solverFactory.find(s);
-    solver = it->second(fun);    
+    if(it != Solver::solverFactory.end()){ //In order to avoid segmentation fault
+        solver = it->second(fun);
+    }else{
+        std::cerr << std::endl << "The method entered does not exits" << std::endl;
+    }
 };
 
 void FunctionRtoR::print() const{
