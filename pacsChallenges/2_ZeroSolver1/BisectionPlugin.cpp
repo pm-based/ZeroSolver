@@ -9,9 +9,9 @@ namespace Solver{
 		point  b = opt.b;
 		double ya = fun(a);
 		double yb = fun(b);
-		if(ya * yb > 0){
+		if(ya * yb > 0){ // If the the function does not change sign at the two end values
 			std::cerr << std::endl 
-			<< "Function must change sign at the two end values" << ya << "  f(b)="<< yb
+			<< "Function must change sign at the two end values"
 			<< std::endl;
 			return std::make_pair(0, false);
 			}
@@ -37,11 +37,14 @@ namespace Solver{
 		return std::make_pair((a + b) / 2., true);
 	}
 
+	// Implementation of plugin architecture
 	namespace
     {
         struct LoadF
         {
             LoadF(){
+				// Adding the method (Definited by the SolverBase(_fun) constructor)
+                // to solverFactory 
                 solverFactory["Bisection"] = [](FunctionTraits::FunctionType _fun) {
                     return std::make_unique<Bisection>(_fun);
                     };
