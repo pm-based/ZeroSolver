@@ -3,7 +3,6 @@
 
 #include "Traits.hpp"
 #include "FactoryTraits.hpp"
-#include "SolverBase.hpp"
 #include <string>
 
 class FunctionRtoR final: FunctionTraits{
