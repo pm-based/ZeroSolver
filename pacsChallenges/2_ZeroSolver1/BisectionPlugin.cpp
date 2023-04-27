@@ -11,7 +11,7 @@ namespace Solver{
 		double yb = fun(b);
 		if(ya * yb > 0){
 			std::cerr << std::endl 
-			<< "Function must change sign at the two end values"
+			<< "Function must change sign at the two end values" << ya << "  f(b)="<< yb
 			<< std::endl;
 			return std::make_pair(0, false);
 			}
