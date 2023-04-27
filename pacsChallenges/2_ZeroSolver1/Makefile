@@ -48,7 +48,7 @@ PLUGINDIR = ./SolverPlugins
 
 all: $(DEPEND) library $(EXEC)
 
-library: libFactory.so libSecant.so
+library: libFactory.so libSecant.so libBisection.so
 
 libFactory.so: FactoryTraits.o
 	$(CXX) $(OPTFLAGS) -shared FactoryTraits.o  -o libFactory.so
