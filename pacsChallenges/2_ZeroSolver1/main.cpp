@@ -18,5 +18,9 @@ int main(){
     ChallengeFunction.solve();
     ChallengeFunction.print();
 
+    ChallengeFunction.setSovler("Bisection");
+    ChallengeFunction.solve();
+    ChallengeFunction.print();
+
     return 0;
 }
