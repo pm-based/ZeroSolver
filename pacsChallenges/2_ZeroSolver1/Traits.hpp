@@ -13,7 +13,7 @@ struct FunctionTraits{
 
 //Traits for the Solver
 namespace Solver{
-    using Concergence = bool
+    using Concergence = bool;
     using NumericalSolutionType = std::pair<FunctionTraits::RootType, Concergence>;
 }
 
