@@ -17,11 +17,11 @@ namespace Solver{
         
         while(diff >= opt.tol_abs && iter < opt.maxIter){
             ++iter;
-            deltax = -Dfx0/fx0;
+            deltax = -fx0/Dfx0;
             std::cout<<deltax<<" "<<Dfx0 << "  " << X0<< std::endl;
             X1=X0+deltax;
             fx1 = fun(X1);
-            Dfx0 = Dfx0+(fx1*deltax)/(deltax*deltax);
+            Dfx0 += (fx1*deltax)/(deltax*deltax);
             diff = std::abs(deltax);
             X0 = X1;
             fx0 = fx1;
