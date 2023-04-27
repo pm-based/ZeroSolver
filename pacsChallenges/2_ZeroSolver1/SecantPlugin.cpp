@@ -4,7 +4,7 @@
 
 namespace Solver{
     FunctionTraits::RootType Secant::solve() const{
-        double          a = opt.a; // to allow modification in the while-loop
+        point           a = opt.a; // to allow modification in the while-loop
         double          ya = fun(a);
         double          resid = std::abs(ya);
         RootType        c{a};

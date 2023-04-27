@@ -12,7 +12,7 @@ namespace Solver{
         virtual ~SolverBase() = default;
 
         virtual RootType solve() const = 0;
-        void SetOptions(
+        void setOptions(
             const point _a, 
             const point _b, 
             const double _tol_abs, 

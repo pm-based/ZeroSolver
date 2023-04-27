@@ -1,7 +1,7 @@
 #include "SolverBase.hpp"
 
 namespace Solver{
-    void SolverBase::SetOptions(
+    void SolverBase::setOptions(
         const point _a, 
         const point _b, 
         const double _tol_abs, 
