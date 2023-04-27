@@ -1,8 +1,8 @@
 #ifndef TRAITS_HPP
 #define TRAITS_HPP
 
+#include <tuple>
 #include <functional>
-#include <pair>
 
 struct FunctionTraits{
     using ArgType = double;
