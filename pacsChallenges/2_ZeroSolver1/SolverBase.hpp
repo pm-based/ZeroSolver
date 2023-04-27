@@ -14,8 +14,9 @@ namespace Solver{
         virtual RootType solve() const = 0;
         void setOptions(
             const point _a, 
-            const point _b, 
-            const double _tol_abs, 
+            const point _b,
+            const double tol_rel,
+            const double _tol_abs,
             const unsigned int _maxIter); 
 
         protected:

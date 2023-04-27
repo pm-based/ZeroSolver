@@ -14,9 +14,10 @@ class FunctionRtoR final: FunctionTraits{
 
     void setOptions(const point _a,
             const point _b, 
+            const double _tol_rel,
             const double _tol_abs, 
             const unsigned int _maxIter){
-                solver->setOptions(_a, _b, _tol_abs, _maxIter);}
+                solver->setOptions(_a, _b, _tol_rel, _tol_abs, _maxIter);}
 
     void solve(){sol = solver->solve();}
     void print() const;
