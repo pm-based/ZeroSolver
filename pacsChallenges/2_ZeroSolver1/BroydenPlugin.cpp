@@ -23,19 +23,22 @@ namespace Solver{
             X0 = X1;
             fx0 = fx1;
         }
-        if (iter == opt.maxIter && diff > opt.tol_abs){
-            return std::make_pair(X1, false);
-        }else{
+
+        if (iter == opt.maxIter && diff > opt.tol_abs){ // If does not converge
+            return std::make_pair(X1, false); 
+        }else{ // If converge
             return std::make_pair(X1, true);
         }
     }
     
-    
+    // Implementation of plugin architecture
 	namespace
     {
         struct LoadF
         {
             LoadF(){
+                // Adding the method (Definited by the SolverBase(_fun) constructor)
+                // to solverFactory 
                 solverFactory["Broyden"] = [](FunctionTraits::FunctionType _fun) {
                     return std::make_unique<Broyden>(_fun);
                     };

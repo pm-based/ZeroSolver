@@ -1,7 +1,5 @@
 #include "FactoryTraits.hpp"
 namespace Solver
 {
-// The common factory for all programs
-// it would be better make it a Singleton (see example in QuadratureRule)
-SolverFactory solverFactory;
+    SolverFactory solverFactory; // Unique factory of solvers
 } // namespace Solver
