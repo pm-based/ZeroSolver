@@ -3,7 +3,7 @@
 #include <functional>
 #include <string>
 #include <dlfcn.h>
-#include <iostream> //only for debugging
+#include <iostream>
 
 #include "Traits.hpp"
 #include "FunctionRtoR.hpp"
@@ -18,13 +18,10 @@ int main(){
     ChallengeFunction.setOptions(-1,0,1.e-6,1.e-10,10000);
     ChallengeFunction.solve();
     ChallengeFunction.print();
-    std::cout<< "before set solver"<<std::endl; 
+
     ChallengeFunction.setSovler("Bisection");
-    std::cout<< "afrer set solver"<<std::endl;
     ChallengeFunction.solve();
-    std::cout<< "afrer solve"<<std::endl;
     ChallengeFunction.print();
-    std::cout<< "afrer print"<<std::endl;
 
     return 0;
 }
