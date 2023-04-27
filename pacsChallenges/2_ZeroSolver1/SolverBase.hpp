@@ -11,7 +11,7 @@ namespace Solver{
         SolverBase(FunctionType _fun): fun(_fun){};
         virtual ~SolverBase() = default;
 
-        virtual RootType solve() const = 0;
+        virtual NumericalSolutionType solve() const = 0;
         void setOptions(
             const point _a, 
             const point _b,

@@ -7,9 +7,8 @@ namespace Solver{
     class Secant final: public SolverBase, FunctionTraits {
         public:
         Secant(FunctionType _fun): SolverBase(_fun) {};
-        virtual RootType solve() const override;
+        virtual NumericalSolutionType solve() const override;
     };
-
 }
 
 #endif //SECANTPLUGIN_HPP

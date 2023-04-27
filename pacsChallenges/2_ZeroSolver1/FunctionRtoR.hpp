@@ -24,7 +24,7 @@ class FunctionRtoR final: FunctionTraits{
 
     private:
     FunctionType fun;
-    RootType sol = 0;
+    Solver::NumericalSolutionType sol;
     Solver::SolverType solver;
 };
 

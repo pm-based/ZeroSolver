@@ -2,6 +2,7 @@
 #define TRAITS_HPP
 
 #include <functional>
+#include <pair>
 
 struct FunctionTraits{
     using ArgType = double;
@@ -9,5 +10,11 @@ struct FunctionTraits{
     using FunctionType = std::function<RootType(ArgType)>;
     using point = double;
 };
+
+//Traits for the Solver
+namespace Solver{
+    using Concergence = bool
+    using NumericalSolutionType = std::pair<FunctionTraits::RootType, Concergence>;
+}
 
 #endif //TRAITS_HPP

@@ -3,7 +3,7 @@
 #include "FactoryTraits.hpp"
 
 namespace Solver{
-    FunctionTraits::RootType Secant::solve() const{
+    NumericalSolutionType Secant::solve() const{
         point           a = opt.a; // to allow modification in the while-loop
         double          ya = fun(a);
         double          resid = std::abs(ya);
@@ -22,7 +22,7 @@ namespace Solver{
             ya = yc;
             a = c;
             }
-        return c;
+         std::make_pair(c, (iter < opt.maxIter));
     }
 
     namespace
