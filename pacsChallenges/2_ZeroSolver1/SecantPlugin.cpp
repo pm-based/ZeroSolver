@@ -22,7 +22,7 @@ namespace Solver{
             ya = yc;
             a = c;
             }
-         std::make_pair(c, (iter < opt.maxIter));
+        return std::make_pair(c, (iter < opt.maxIter));
     }
 
     namespace
