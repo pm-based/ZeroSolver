@@ -29,7 +29,7 @@ class FunctionRtoR final: FunctionTraits{
     *   and the approximation of initial derivative) or simply
     *   plugins with more functions. */
     Solver::SolverType solver = nullptr;
-    Solver::SolverType& solverSetting(){return solver;};
+    Solver::SolverType * solverSetting(){return &solver;};
 
     private:
     FunctionType fun;
