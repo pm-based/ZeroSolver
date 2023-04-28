@@ -34,21 +34,9 @@ int main(){
     ChallengeFunction.solve();
     ChallengeFunction.print();
 
-    auto it = Solver::solverFactory.find("Broyden");
-    auto solver = it->second(FunctionToSolve);
-    solver.setQuasiNewtonOpt(-0.6,-0.5);
-
-
-
-//     ChallengeFunction.setSovler("Broyden");
-//     auto a = ChallengeFunction.solverSetting();
-//     *a->setQuasiNewtonOpt(-0.6,-0.5);
-//    // ChallengeFunction.solver->setQuasiNewtonOpt(-0.6,-0.5);
-//     ChallengeFunction.solve();
-//     ChallengeFunction.print();
-
-
-
-
+    ChallengeFunction.setSovler("Broyden");
+    ChallengeFunction.solve();
+    ChallengeFunction.print();
+    
     return 0;
 }

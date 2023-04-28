@@ -11,8 +11,11 @@ void FunctionRtoR::setSovler(std::string s){
 };
 
 void FunctionRtoR::print() const{
-    std::cout<<sol.first<<std::endl;
-    std::cout<<sol.second<<std::endl;
+    if(sol.second == true){
+        std::cout<< sol.first <<std::endl;
+    }else{
+        std::cout << "does not converge" << std::endl;
+    }
 }
 
 void FunctionRtoR::setOptions(const FunctionTraits::point _a,
