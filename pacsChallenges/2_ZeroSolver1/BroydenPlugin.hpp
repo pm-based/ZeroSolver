@@ -4,7 +4,7 @@
 #include "SolverBase.hpp"
 
 namespace Solver{
-    class Broyden final: public SolverBase {
+    class Broyden final: public SolverBase, FunctionTraits {
         public:
         Broyden(FunctionType _fun): SolverBase(_fun) {};
         virtual NumericalSolutionType solve() const override;
