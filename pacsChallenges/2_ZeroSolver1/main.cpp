@@ -35,7 +35,8 @@ int main(){
     ChallengeFunction.print();
 
     ChallengeFunction.setSovler("Broyden");
-    ChallengeFunction.solver->setQuasiNewtonOpt(-0.6,-0.5);
+    ChallengeFunction.solverSetting()->setQuasiNewtonOpt(-0.6,-0.5);
+   // ChallengeFunction.solver->setQuasiNewtonOpt(-0.6,-0.5);
     ChallengeFunction.solve();
     ChallengeFunction.print();
 
