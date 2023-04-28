@@ -15,8 +15,8 @@ namespace Solver{
         };
         
         private:
-        point x0 = -0.5;
-        double dfx0 = -0.1;
+        point x0 = 0;
+        double dfx0 = 1;
     };
 }
 
